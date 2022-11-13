@@ -7,11 +7,11 @@ terraform {
   }
 
   required_version = ">=0.14.9"
-  backend "s3" {
-       bucket = "[Remote_State_S3_Bucket_Name]"
-       key    = "[Remote_State_S3_Bucket_Key]"
-       region = "ap-southeast-1"
-   }
+#   backend "s3" {
+#        bucket = "aws-terraform-practice-vsujeesh"
+#        key    = "[Remote_State_S3_Bucket_Key]"
+#        region = "ap-southeast-1"
+#    }
 
 }
 
@@ -21,7 +21,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "s3Bucket" {
-     bucket = "[BUCKET_NAME_HERE]"
+     bucket = "aws-terraform-practice-vsujeesh"
      acl       = "public-read"
 
      policy  = <<EOF
@@ -34,7 +34,7 @@ resource "aws_s3_bucket" "s3Bucket" {
              "s3:GetObject"
           ],
          "effect" : "Allow",
-         "resource" : "arn:aws:s3:::[BUCKET_NAME_HERE]/*",
+         "resource" : "arn:aws:s3:::aws-terraform-practice-vsujeesh/*",
          "principal" : "*"
       }
     ]
