@@ -1,9 +1,6 @@
 name: Deploy Infrastructure
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   tf_fmt:
