@@ -1,10 +1,10 @@
 # Skills uplift for sprint 36.2: CI/CD with GitHub Actions for a static website hosted in AWS S3 that was setup via Terraform
 
-##  Setup
+##  Setup (only needed if making changes to s3 via terraform)
 1. Install Git for your operating system locally from `https://git-scm.com/downloads`.
 2. Install Terraform for your operating system locally from `https://developer.hashicorp.com/terraform/downloads`.
 3. Clone this repository using the `git clone` command into your local storage using the HTTPS URL of the repository.
-4. Run locally `terraform init`, followed by `terraform plan` and then lastly `terraform apply`. This will create/provision the s3 bucket, and a hello world page will be accessible at the address `https://aws-terraform-practice-vsujeesh.s3.ap-southeast-1.amazonaws.com/index.html`
+4. Run `terraform init`, followed by exporting the environment variables (see email for the commands), and then `terraform plan` and then lastly `terraform apply`. This will create/provision the s3 bucket, and a hello world page will be accessible at the address `https://aws-terraform-practice-vsujeesh.s3.ap-southeast-1.amazonaws.com/index.html`
 
 ##  Making Changes
 1. Edit `index.html` from the `src` folder. 
