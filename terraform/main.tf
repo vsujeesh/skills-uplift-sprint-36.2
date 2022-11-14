@@ -6,14 +6,7 @@ terraform {
       version = "~>3.27"
     }
   }
-required_version = ">=0.14.9" 
 
-   backend "s3" {
-       bucket = "aws-terraform-practice-vsujeesh"
-      # key    = "[Remote_State_S3_Bucket_Key]"
-       region = "ap-southeast-1"
-   }
-}
 
 }
 
@@ -21,6 +14,14 @@ provider "aws" {
   region  = "ap-southeast-1"
   version = "~>3.0"
 }
+required_version = ">=0.14.9" 
+
+   backend "s3" {
+       bucket = "aws-terraform-practice-vsujeesh"
+       # key    = "[Remote_State_S3_Bucket_Key]"
+       region = "ap-southeast-1"
+   }
+
 
 resource "aws_s3_bucket" "s3" {
   bucket = "aws-terraform-practice-vsujeesh"
