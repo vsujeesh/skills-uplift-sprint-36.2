@@ -15,7 +15,7 @@ provider "aws" {
   version = "~>3.0"
 }
 
-resource "aws_s3_bucket" "s3Bucket" {
+resource "aws_s3_bucket_website_configuration" "s3Bucket" {
      bucket = "aws-terraform-practice-vsujeesh"
      acl       = "public-read"
 
