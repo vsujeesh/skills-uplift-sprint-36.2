@@ -24,7 +24,7 @@ jobs:
       run: pwd
     
     - name: check if dir is empty
-      run: ls
+      run: ls && cd ./terraform
 
     # - name: check prev folder
     #   run: cd .. && ls
