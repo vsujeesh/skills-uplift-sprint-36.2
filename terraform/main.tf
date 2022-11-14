@@ -13,7 +13,7 @@ terraform {
 
 provider "aws" {
   region  = "ap-southeast-1"
-  version = "~>3.0"
+  version = "~>3.27"
 }
 
 resource "aws_s3_bucket" "s3Bucket" {
