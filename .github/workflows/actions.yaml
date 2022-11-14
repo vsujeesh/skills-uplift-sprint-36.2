@@ -17,8 +17,8 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v1
 
-    - name: Change to Terraform Directory
-      run: cd terraform && cd terraform
+    # - name: Change to Terraform Directory
+    #   run: cd terraform && cd terraform
 
     - name: Print working dir
       run: pwd
