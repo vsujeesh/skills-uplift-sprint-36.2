@@ -27,9 +27,7 @@ jobs:
       run: ls
 
     - name: check prev folder
-    run: |
-    cd ..
-    ls
+    run: cd .. && ls
 
     - name: Terraform Init
       run: terraform init
