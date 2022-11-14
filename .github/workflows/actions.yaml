@@ -8,13 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - name: Checkout Repo
+      uses: actions/checkout@v1
+    
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v2
       env:
         TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+        TF_ACTIONS_WORKING_DIR: './terraform'
 
-    - name: Checkout Repo
-      uses: actions/checkout@v1
+
 
     # - name: Change to Terraform Directory
     #   run: cd ./terraform
