@@ -15,11 +15,22 @@ provider "aws" {
   version = "~>3.0"
 }
 
-resource "aws_s3_bucket_website_configuration" "example" {
-  bucket = aws-terraform-practice-vsujeesh
+resource "aws_s3_bucket" "s3bucket" {
+  bucket = "aws-terraform-practice-vsujeesh"
+  acl    = "public-read"
 
-  index_document {
-    suffix = "index.html"
+  website {
+    index_document = "index.html"
+
+    routing_rules = <<EOF
+[{
+    "Condition": {
+        "KeyPrefixEquals": "docs/"
+    },
+    "Redirect": {
+        "ReplaceKeyPrefixWith": "documents/"
+    }
+}]
+EOF
   }
-
 }
