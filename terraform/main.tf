@@ -29,20 +29,33 @@ resource "aws_s3_bucket" "s3" {
     "Condition": {
         "KeyPrefixEquals": "docs/"
     },
-    "statement" : [
-      {
-         "action" : [
-             "s3:GetObject"
-          ],
-         "effect" : "Allow",
-         "resource" : "arn:aws:s3:::aws-terraform-practice-vsujeesh/*",
-         "principal" : "*"
-      }
-    ]
+    
     "Redirect": {
         "ReplaceKeyPrefixWith": "documents/"
     }
 }]
 EOF
   }
+
+  {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::1234567890:root"
+      },
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::yourdomain-terraform"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::1234567890:root"
+      },
+      "Action": ["s3:GetObject", "s3:PutObject"],
+      "Resource": "arn:aws:s3:::yourdomain-terraform/*"
+    }
+  ]
+}
 }
