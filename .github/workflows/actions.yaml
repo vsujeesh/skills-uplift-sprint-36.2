@@ -7,12 +7,18 @@ jobs:
     name: Deploy Site
     runs-on: ubuntu-latest
     steps:
+    - uses: hashicorp/setup-terraform@v2
+  with:
+    cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     - name: Checkout Repo
       uses: actions/checkout@v1
 
+
+
+
     - name: Terraform Init
-      uses: dflook/terraform-init@v1
+      run: terraform init
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TF_ACTION_WORKING_DIR: 'terraform'
@@ -20,10 +26,10 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Terraform Validate
-      uses: dflook/terraform-plan@v1
+      run: terraform plan
 
     - name: Terraform Apply
-      uses: dflook/terraform-apply@v1
+      run: terraform apply
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         TF_ACTION_WORKING_DIR: 'terraform'
