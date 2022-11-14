@@ -20,6 +20,9 @@ jobs:
     - name: Change to Terraform Directory
       run: cd ./terraform
 
+    - name: Print working dir
+      run: pwd
+
     - name: Terraform Init
       run: terraform init
       env:
