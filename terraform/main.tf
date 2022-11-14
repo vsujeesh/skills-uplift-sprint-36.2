@@ -29,6 +29,16 @@ resource "aws_s3_bucket" "s3" {
     "Condition": {
         "KeyPrefixEquals": "docs/"
     },
+    "statement" : [
+      {
+         "action" : [
+             "s3:GetObject"
+          ],
+         "effect" : "Allow",
+         "resource" : "arn:aws:s3:::aws-terraform-practice-vsujeesh/*",
+         "principal" : "*"
+      }
+    ]
     "Redirect": {
         "ReplaceKeyPrefixWith": "documents/"
     }
