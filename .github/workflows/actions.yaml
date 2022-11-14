@@ -46,7 +46,7 @@ jobs:
 
 
     - name: Terraform Apply
-      run: terraform -chdir=terraform -auto-approve apply
+      run: terraform -chdir=terraform apply -auto-approve
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
