@@ -36,26 +36,21 @@ resource "aws_s3_bucket" "s3" {
 }]
 EOF
   }
-
-  {
-  "Version": "2012-10-17",
+  policy = <<EOF
+{
+  "Version": "2008-10-17",
   "Statement": [
     {
+      "Sid": "PublicReadForGetBucketObjects",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::1234567890:root"
+        "AWS": "*"
       },
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::yourdomain-terraform"
-    },
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::1234567890:root"
-      },
-      "Action": ["s3:GetObject", "s3:PutObject"],
-      "Resource": "arn:aws:s3:::yourdomain-terraform/*"
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*"
     }
   ]
 }
+EOF
+
 }
