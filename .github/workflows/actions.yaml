@@ -3,7 +3,6 @@ name: Deploy Infrastructure
 on: [push]
 
 jobs:
-deployment_job:
   tf_fmt:
     name: Deploy AWS Infra
     runs-on: ubuntu-latest
@@ -54,16 +53,8 @@ deployment_job:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 
-    
-
-sync_job:
-if: ${{ always() }}
-    needs: deployment_job
-  tf_fmt:
-    name: Deploy AWS Infra
-    runs-on: ubuntu-latest
-    steps:
     - name: Sync S3
+      if: always()
       uses: jakejarvis/s3-sync-action@master
       env:
         SOURCE_DIR: './src'
