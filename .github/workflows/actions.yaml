@@ -22,6 +22,14 @@ jobs:
 
     - name: Print working dir
       run: pwd
+    
+    - name: check if dir is empty
+      run: ls
+
+    - name: check prev folder
+    run: |
+    cd ..
+    ls
 
     - name: Terraform Init
       run: terraform init
