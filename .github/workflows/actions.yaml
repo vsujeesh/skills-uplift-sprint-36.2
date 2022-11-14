@@ -18,7 +18,7 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Change to Terraform Directory
-      run: cd terraform/terraform
+      run: cd terraform && cd terraform
 
     - name: Print working dir
       run: pwd
