@@ -20,11 +20,11 @@ jobs:
     # - name: Change to Terraform Directory
     #   run: cd terraform && cd terraform
 
-    - name: Print working dir
-      run: pwd
+    # - name: Print working dir
+    #   run: pwd
     
-    - name: check if dir is empty
-      run: ls && cd ./terraform
+    # - name: change directory to the terraform directory
+    #   run: ls && cd ./terraform
 
     # - name: check prev folder
     #   run: cd .. && ls
