@@ -42,6 +42,6 @@ resource "aws_s3_bucket" "s3" {
 resource "aws_s3_bucket_object" "object" {
   bucket = "aws-terraform-practice-vsujeesh"
   key    = "index.html"
-  source = "src/index.html"
+  source = "/src/index.html"
 
 }
