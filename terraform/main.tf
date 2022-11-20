@@ -29,6 +29,7 @@ provider "aws" {
 
 resource "aws_s3_bucket" "s3" {
   bucket = "aws-terraform-practice-vsujeesh"
+  force_destroy = "true"
   acl    = "public-read"
   policy = file("policy.json")
 
@@ -39,9 +40,9 @@ resource "aws_s3_bucket" "s3" {
   }
 }
 
-resource "aws_s3_bucket_object" "object" {
+resource "aws_s3_object" "object" {
   bucket = "aws-terraform-practice-vsujeesh"
   key    = "index.html"
-  source = "/src/index.html"
+  source = "../src/index.html"
 
 }
