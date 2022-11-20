@@ -46,5 +46,8 @@ resource "aws_s3_bucket_object" "object" {
   source = "../src/index.html"
   source_hash = filemd5("../src/index.html")
   content_type = "text/html"
+  depends_on = [
+    aws_s3_bucket.s3
+  ]
 
 }
