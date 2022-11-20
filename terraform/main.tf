@@ -27,7 +27,7 @@ provider "aws" {
 
 
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "s3Bucket" {
   bucket = "aws-terraform-practice-vsujeesh"
   acl    = "public-read"
   policy = file("policy.json")
@@ -35,15 +35,6 @@ resource "aws_s3_bucket" "b" {
   website {
     index_document = "index.html"
 
-    routing_rules = <<EOF
-[{
-    "Condition": {
-        "KeyPrefixEquals": "docs/"
-    },
-    "Redirect": {
-        "ReplaceKeyPrefixWith": "documents/"
-    }
-}]
-EOF
+
   }
 }
