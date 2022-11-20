@@ -1,0 +1,12 @@
+{
+    "Version": "2021-11-20",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*"
+        }
+    ]
+}

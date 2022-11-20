@@ -27,9 +27,10 @@ provider "aws" {
 
 
 
-resource "aws_s3_bucket" "s3" {
+resource "aws_s3_bucket" "b" {
   bucket = "aws-terraform-practice-vsujeesh"
   acl    = "public-read"
+  policy = file("policy.json")
 
   website {
     index_document = "index.html"
@@ -39,28 +40,10 @@ resource "aws_s3_bucket" "s3" {
     "Condition": {
         "KeyPrefixEquals": "docs/"
     },
-    
     "Redirect": {
         "ReplaceKeyPrefixWith": "documents/"
     }
 }]
 EOF
   }
-  policy = <<EOF
-{
-  "Version": "2008-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadForGetBucketObjects",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*"
-    }
-  ]
-}
-EOF
-
 }
