@@ -1,5 +1,6 @@
 terraform {
 
+// backend ensures that the state is stored, so terraform doesn't try to create something that alr exists
   backend "s3" {
     bucket = "vsujeesh-terraform-state-storage"
     key    = "terraform.tfstate"
