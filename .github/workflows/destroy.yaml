@@ -1,5 +1,7 @@
 name: Destroy Infrastructure
 
+on: [workflow_dispatch]
+
 jobs:
   tf_fmt:
     name: Deploy AWS Infra
