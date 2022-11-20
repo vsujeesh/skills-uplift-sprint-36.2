@@ -27,7 +27,7 @@ provider "aws" {
 
 
 
-resource "aws_s3_bucket" "s3Bucket" {
+resource "aws_s3_bucket" "s3" {
   bucket = "aws-terraform-practice-vsujeesh"
   acl    = "public-read"
   policy = file("policy.json")
