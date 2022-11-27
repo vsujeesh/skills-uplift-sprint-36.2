@@ -66,11 +66,11 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   is_ipv6_enabled     = true
   default_root_object = "index.html"
 
-  logging_config {
-    include_cookies = false
-    bucket          = "mylogs.s3.amazonaws.com"
-    prefix          = "myprefix"
-  }
+  # logging_config {
+  #   include_cookies = false
+  #   bucket          = "mylogs.s3.amazonaws.com"
+  #   prefix          = "myprefix"
+  # }
 
 
   default_cache_behavior {
