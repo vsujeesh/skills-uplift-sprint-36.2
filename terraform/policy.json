@@ -11,12 +11,7 @@
                 "Service": "cloudfront.amazonaws.com"
             },
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*",
-            "Condition": {
-                "StringEquals": {
-                  "AWS:SourceArn": "arn:aws:cloudfront::386004793052:distribution/E16601ARS9GWYX"
-                }
-            }
+            "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*"
         }
     ]
   }
