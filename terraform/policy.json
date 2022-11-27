@@ -16,6 +16,7 @@
                 "StringEquals": {
                     "AWS:SourceArn": "arn:aws:cloudfront::386004793052:distribution/E2QQ63W3XOX8YI"
                 }
+            }
         }
     ]
   }
