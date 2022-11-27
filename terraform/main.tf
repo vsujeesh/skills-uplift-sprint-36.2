@@ -33,11 +33,11 @@ resource "aws_s3_bucket" "s3" {
   acl    = "private"
   policy = file("policy.json")
 
-  website {
-    index_document = "index.html"
+  # website {
+  #   index_document = "index.html"
 
 
-  }
+  # }
 }
 
 resource "aws_s3_bucket_object" "object" {
