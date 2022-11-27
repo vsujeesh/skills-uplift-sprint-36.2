@@ -1,12 +1,22 @@
+
+
 {
-    "Version": "2012-10-17",
+    "Version": "2008-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
     "Statement": [
         {
-            "Sid": "PublicReadGetObject",
+            "Sid": "AllowCloudFrontServicePrincipal",
             "Effect": "Allow",
-            "Principal": "*",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*"
+            "Resource": "arn:aws:s3:::aws-terraform-practice-vsujeesh/*",
+            "Condition": {
+                "StringEquals": {
+                  "AWS:SourceArn": "arn:aws:cloudfront::386004793052:distribution/E16601ARS9GWYX"
+                }
+            }
         }
     ]
-}
+  }
