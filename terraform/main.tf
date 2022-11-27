@@ -30,7 +30,7 @@ provider "aws" {
 resource "aws_s3_bucket" "s3" {
   bucket = "aws-terraform-practice-vsujeesh"
   force_destroy = "true"
-  acl    = "private-read"
+  acl    = "authenticated-read"
   policy = file("policy.json")
 
   # website {
